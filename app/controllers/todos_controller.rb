@@ -41,8 +41,11 @@ class TodosController < ApplicationController
   end
 
   def search
-    todos = Todo.where("title LIKE ?", "%#{params[:q]}%").page(params[:page]).per(5)
-    render json: todos
+    todos = Todo.where('title LIKE(?) or text LIKE(?)', "%#{params[:q]}%","%#{params[:q]}%").page(params[:page]).per(5)
+    pagenation = resources_with_pagination(todos)  
+    @todos = todos.as_json
+    json_data = { todos: @todos, kaminari: pagenation }  
+    render json: json_data
   end
 
   private
