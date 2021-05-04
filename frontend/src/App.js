@@ -2,9 +2,9 @@ import { Switch, Route, Link, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { AddTodo } from "./components/AddTodo";
-import { ShowTodo } from "./components/ShowTodo";
-import { TodoList } from "./components/TodoList";
+import { AddTodo } from "./pages/AddTodo";
+import { ShowTodo } from "./pages/ShowTodo";
+import { TodoList } from "./pages/TodoList";
 
 function App() {
   return (
